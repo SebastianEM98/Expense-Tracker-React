@@ -9,7 +9,7 @@ function App() {
                 <h1 className="uppercase text-center font-black text-4xl text-white">Expense Tracker</h1>
             </header>
 
-            <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg mt-10 p-10">
+            <div className="lg:max-w-3xl lg:mx-auto sm:mx-10 m-5 bg-white shadow-lg rounded-lg mt-10 p-10">
                 <BudgetForm />
             </div>
         </>
