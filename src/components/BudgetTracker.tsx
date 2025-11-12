@@ -1,3 +1,4 @@
+import AmountDisplay from "./AmountDisplay";
 
 export default function BudgetTracker() {
     return (
@@ -13,6 +14,21 @@ export default function BudgetTracker() {
                 >
                     Reset App
                 </button>
+
+                <AmountDisplay 
+                    label="Budget"
+                    amount={300}
+                />
+                 
+                <AmountDisplay 
+                    label="Remaining"
+                    amount={200}
+                />
+                <AmountDisplay 
+                    label="Spent"
+                    amount={100}
+                />
+
             </div>
         </div>
     )
