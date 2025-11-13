@@ -38,8 +38,8 @@ export default function BudgetForm() {
 
             <input
                 type="submit"
-                value="Set Budget"
-                className="bg-blue-600 cursor-pointer w-full p-2 text-white font-bold uppercase tracking-wider transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-blue-600 hover:bg-blue-700 active:bg-blue-800"
+                value="Confirm"
+                className="bg-blue-600 cursor-pointer rounded-lg w-full p-2 text-white font-bold uppercase tracking-wider transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-blue-600 hover:bg-blue-700 active:bg-blue-800"
                 disabled={isValid}
             />
         </form>
