@@ -133,9 +133,13 @@ export default function ExpenseForm() {
                     Date:
                 </label>
                 <DatePicker
-                    className="bg-slate-100 p-2 border-0"
+                    className="bg-slate-100 p-2 rounded-lg border-0"
                     value={expense.date}
                     onChange={handleDateChangeDate}
+                    dayPlaceholder="dd"
+                    monthPlaceholder="mm"
+                    yearPlaceholder="yyyy"
+                    maxDate={new Date()}
                 />
 
             </div>
