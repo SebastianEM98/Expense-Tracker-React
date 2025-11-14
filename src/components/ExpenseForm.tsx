@@ -127,7 +127,6 @@ export default function ExpenseForm() {
 
             <div className="flex flex-col gap-2">
                 <label
-                    htmlFor="date"
                     className="text-xl"
                 >
                     Date:
