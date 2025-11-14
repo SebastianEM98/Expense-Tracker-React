@@ -26,7 +26,7 @@ export default function ExpenseDetail({ expense }: ExpenseDetailProps) {
     const leadingActions = () => (
         <LeadingActions>
             <SwipeAction
-                onClick={() => { }}
+                onClick={() => dispatch({ type: 'get-expense-by-id', payload: { id: expense.id } })}
             >
                 Edit
             </SwipeAction>
@@ -47,7 +47,7 @@ export default function ExpenseDetail({ expense }: ExpenseDetailProps) {
     return (
         <SwipeableList className="first-of-type:rounded-tl-lg first-of-type:rounded-tr-lg last-of-type:rounded-bl-lg last-of-type:rounded-br-lg">
             <SwipeableListItem
-                maxSwipe={1}
+                maxSwipe={0.6}
                 leadingActions={leadingActions()}
                 trailingActions={trailingActions()}
             >

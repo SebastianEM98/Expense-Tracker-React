@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type FormEvent } from 'react';
+import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react';
 import type { DraftExpense, Value } from '../types';
 import DatePicker from 'react-date-picker';
 import { categories } from "../data/categories";
@@ -15,8 +15,18 @@ export default function ExpenseForm() {
         category: '',
         date: new Date()
     })
+    
     const [error, setError] = useState('')
-    const { dispatch } = useBudget()
+    const { state, dispatch } = useBudget()
+
+
+    useEffect(() => {
+        if(state.editingId) {
+            const editingExpense = state.expenses.filter(currentExpense => currentExpense.id === state.editingId)[0]
+            setExpense(editingExpense)
+        }
+    }, [state.editingId])
+
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target
@@ -28,12 +38,14 @@ export default function ExpenseForm() {
         })
     }
 
+
     const handleDateChangeDate = (value: Value) => {
         setExpense({
             ...expense,
             date: value
         })
     }
+
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -44,7 +56,12 @@ export default function ExpenseForm() {
         }
 
         setError('')
-        dispatch({ type: 'add-expense', payload: { expense } })
+
+        if(state.editingId) {
+            dispatch({ type: 'update-expense', payload: { expense: {id: state.editingId, ...expense}} })
+        } else {
+            dispatch({ type: 'add-expense', payload: { expense } })
+        }
 
         setExpense({
             amount: 0,
@@ -54,10 +71,11 @@ export default function ExpenseForm() {
         })
     }
 
+
     return (
         <form className="space-y-5" onSubmit={handleSubmit}>
             <legend className="uppercase text-center text-2xl font-black border-b-4 border-blue-500 py-2">
-                Record Expense
+                {state.editingId ? 'Edit Expense' : 'Record Expense'}
             </legend>
 
             {error && <ErrorMesage>{error}</ErrorMesage>}
