@@ -45,22 +45,22 @@ export default function ExpenseDetail({ expense }: ExpenseDetailProps) {
     )
 
     return (
-        <SwipeableList className="first-of-type:rounded-tl-lg first-of-type:rounded-tr-lg last-of-type:rounded-bl-lg last-of-type:rounded-br-lg">
+        <SwipeableList className="last-of-type:rounded-bl-lg last-of-type:rounded-br-lg">
             <SwipeableListItem
                 maxSwipe={0.6}
                 leadingActions={leadingActions()}
                 trailingActions={trailingActions()}
             >
-                <div className="bg-white shadow-lg p-10 w-full border-b border-gray-200 flex gap-5 items-center transition-colors duration-200 active:cursor-grabbing hover:cursor-grab hover:bg-gray-50 active:bg-neutral-100">
+                <div className="bg-white p-6 w-full border-b border-gray-200 flex gap-5 items-center transition-colors duration-200 active:cursor-grabbing hover:cursor-grab hover:bg-gray-50 active:bg-neutral-100">
                     <div>
                         <img
                             src={`/icon_${categoryInfo.icon}.svg`}
                             alt={`${categoryInfo.icon} icon`}
-                            className="w-20"
+                            className="sm:w-20 w-16"
                         />
                     </div>
 
-                    <div className="flex-1 space-y-2">
+                    <div className="flex-1 sm:space-y-2 space-y-0.5">
                         <p className="text-sm font-bold uppercase text-slate-500">{categoryInfo.name}</p>
                         <p>{expense.expenseName}</p>
                         <p className="text-slate-600 text-sm">{formatDate(expense.date!.toString())}</p>
