@@ -15,15 +15,17 @@ export default function ExpenseForm() {
         category: '',
         date: new Date()
     })
-    
+
     const [error, setError] = useState('')
-    const { state, dispatch } = useBudget()
+    const [previousAmount, setPreviousAmount] = useState(0)
+    const { state, dispatch, remainingBudget } = useBudget()
 
 
     useEffect(() => {
-        if(state.editingId) {
+        if (state.editingId) {
             const editingExpense = state.expenses.filter(currentExpense => currentExpense.id === state.editingId)[0]
             setExpense(editingExpense)
+            setPreviousAmount(editingExpense.amount)
         }
     }, [state.editingId])
 
@@ -50,15 +52,23 @@ export default function ExpenseForm() {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
+        // Check valid values
         if (Object.values(expense).includes('') || expense.amount <= 0 || expense.expenseName.trim() === '' || expense.date === null) {
             setError('All fields are required')
             return
         }
 
+        // Check that expenses do not exceed the budget
+        if ((expense.amount - previousAmount) > remainingBudget) {
+            setError('The expense exceeds the budget')
+            return
+        }
+
         setError('')
 
-        if(state.editingId) {
-            dispatch({ type: 'update-expense', payload: { expense: {id: state.editingId, ...expense}} })
+        // Check if the operation is add or edit
+        if (state.editingId) {
+            dispatch({ type: 'update-expense', payload: { expense: { id: state.editingId, ...expense } } })
         } else {
             dispatch({ type: 'add-expense', payload: { expense } })
         }
@@ -69,6 +79,7 @@ export default function ExpenseForm() {
             category: '',
             date: new Date()
         })
+        setPreviousAmount(0)
     }
 
 
