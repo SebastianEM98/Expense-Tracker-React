@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# Expense Tracker (React + TypeScript + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and intuitive expense and budget tracking application built with **React**, **TypeScript**, and **Tailwind CSS**, featuring persistent data using **localStorage**. Users can add, edit, delete, and categorize expenses while tracking their overall budget visually.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **Budget tracking** with a visual donut chart  
+- **Add, edit, and delete expenses**  
+- **LocalStorage persistence**  
+- **Category-based expense organization**  
+- **Modal for creating/editing expenses** using **Headless UI**  
+- Swipe actions for expenses (edit/delete) using **react-swipeable-list**  
+- Global state management with **Context API** + **useReducer**  
+- Responsive interface styled with **Tailwind CSS**
+  
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## 🛠️ Technologies Used
 
-## Expanding the ESLint configuration
+- **React**  
+- **TypeScript**  
+- **Tailwind CSS**  
+- **Context API + useReducer** (state management)  
+- **Headless UI** (modal interactions)  
+- **react-circular-progressbar** (budget/expense chart)  
+- **react-swipeable-list** (gesture-based actions)  
+- **localStorage** (data persistence)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/SebastianEM98/Expense-Tracker-React.git
+cd Expense-Tracker-React
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Project Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+  components/
+  context/
+  data/
+  helpers/
+  hooks/
+  reducers/
+  pages/
+  types/
 ```
+
+
+## 📄 License
+
+This project is licensed under the MIT License.
