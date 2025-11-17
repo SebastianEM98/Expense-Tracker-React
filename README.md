@@ -19,7 +19,8 @@ A simple and intuitive expense and budget tracking application built with **Reac
 
 - **React**  
 - **TypeScript**  
-- **Tailwind CSS**  
+- **Tailwind CSS**
+- **Vite** (project setup & bundler)
 - **Context API + useReducer** (state management)  
 - **Headless UI** (modal interactions)  
 - **react-circular-progressbar** (budget/expense chart)  
@@ -47,7 +48,6 @@ src/
   helpers/
   hooks/
   reducers/
-  pages/
   types/
 ```
 
