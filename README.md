@@ -3,6 +3,13 @@
 A simple and intuitive expense and budget tracking application built with **React**, **TypeScript**, and **Tailwind CSS**, featuring persistent data using **localStorage**. Users can add, edit, delete, and categorize expenses while tracking their overall budget visually.
 
 
+## 🌐 Live Demo
+
+Check the project live on Vercel:
+
+**Live URL:** https://expense-tracker-react-six-gold.vercel.app/
+
+
 ## 🚀 Features
 
 - **Budget tracking** with a visual donut chart  
