@@ -7,7 +7,7 @@ A simple and intuitive expense and budget tracking application built with **Reac
 
 Check the project live on Vercel:
 
-**Live URL:** https://expense-tracker-react-six-gold.vercel.app/
+**Live URL:** [https://expense-tracker-react-six-gold.vercel.app/](https://budget-expense-tracker-react.vercel.app/)
 
 
 ## 🚀 Features
